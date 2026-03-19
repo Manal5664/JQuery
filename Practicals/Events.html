@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Welcome to JQuery</h1>
+
+    <input type="button" value="click me" id="myButton">
+
+
+    <input type="text" id="txt">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js">
+
+    </script>
+    <script>
+        // click event
+        $(document).ready(function(){
+            $("#myButton").click(function(){
+               $("h1").css("color", "red");
+            });
+        })
+
+
+        // contextmenu event
+        $(document).ready(function(){
+            $("#myButton").contextmenu(function(){
+                $("h1").css("color", "blue");
+            });
+        })
+
+        // double click
+        $(document).ready(function(){
+            $("#myButton").dblclick(function(){
+                $("h1").css("color", "green");
+            });
+        })
+
+        // mouseenter
+        $(document).ready(function(){
+            $("h1").mouseenter(function(){
+                $("h1").css("color", "purple");
+            });
+        })
+
+        // mouseleave
+        $(document).ready(function(){
+            $("#myButton").mouseleave(function(){
+                $("h1").css("color", "orange");
+            });
+        })
+
+        // mouseenter
+        $(document).ready(function(){
+            $("#myButton").mousedown(function(){
+                $("h1").css("color", "brown");
+            });
+        })
+
+        // mouseup
+        $(document).ready(function(){
+            $("#myButton").mouseup(function(){
+                $("h1").css("color", "pink");
+            });
+        })
+
+        // mousedown
+        $(document).ready(function(){
+            $("#myButton").mousemove(function(){
+                $("h1").css("color", "cyan");
+            });
+        })
+
+        // focus
+        $(document).ready(function(){
+            $("#txt").focus(function(){
+                $("#txt").css("background-color", "yellow");
+            });
+        })
+        // blur
+        $(document).ready(function(){
+            $("#txt").blur(function(){
+                $("#txt").css("background-color", "gray");
+            });
+        })
+
+        // on() method
+        $(document).ready(function(){
+            $("h1").on({
+            mouseenter: function(){ 
+                $("h1").css("background-color", "black");
+            },
+            mouseleave: function(){
+                $("h1").css("background-color", "red");
+            },
+             click: function(){
+                $("h1").css("background-color", "blue");
+             }   
+            });
+        })
+
+
+    </script>
+
+
+
+
+</body>
+</html>
