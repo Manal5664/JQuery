@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        #div1{
+            height: 120px;
+            width: 250px;
+            border: 5px black ridge;
+            background-color: aqua;
+            /* display: none; */
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <h1>This is Div</h1>
+        <p>this is paragraph</p>
+    </div>
+    
+    
+    <br>
+    <input type="button" value="fadein" id="btn">
+
+    <input type="button" value="fadeout" id="btn2">
+
+    <input type="button" value="fadeout" id="btn3">
+
+
+
+    <script src="jquery.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#btn').click(function(){
+                $("div").fadeIn()
+            });
+        });
+
+        $(document).ready(function(){
+            $('#btn2').click(function(){
+                $("div").fadeOut()
+            });
+        });
+
+        $(document).ready(function(){
+            $('#btn3').click(function(){
+                $("div").fadeToggle()
+            });
+        });
+    </script>
+</body>
+</html>
