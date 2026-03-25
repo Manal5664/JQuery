@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- selection by ID -->
+    <p id="p1">Hello, jQuery is ready!</p>
+    <p>Welcome to the world of jQuery!</p>
+
+    <input type="button" value="click me" id="myButton">
+    <script src="jquery.js"></script>
+
+    <script>
+        $(document).ready(function() {
+           $("#myButton").click(function() {
+               $("#p1").css("color", "red");
+           });
+        });
+
+
+    </script>
+
+<!-- selection by class -->
+    <p class="highlight">This is a highlighted paragraph.</p>
+    <p class="highlight">This is another highlighted paragraph.</p>     
+    <input type="button" value="click me" id="Button">
+
+    <script>
+        $(document).ready(function() {
+            $("#Button").click(function() {   
+            $(".highlight").css("background-color", "yellow");
+        }); 
+
+}); 
+
+    //  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+
+    </script>
+
+<!-- selection by tag -->
+    <h1>This is a heading.</h1>
+    <p1>This is a paragraph.</p1>
+    <input type="button" value="click me" id="tagButton">
+    <script>
+        $(document).ready(function() {
+            $("#tagButton").click(function() {
+                $("p1").css("font-family", "cooper");
+            });
+        }); 
+
+        </script>
+
+
+
+
+</body>
+</html>
