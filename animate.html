@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            height:150px;
+            width: 150px;
+            background-color: gray;
+            border: 5px solid black;
+            text-align: center;
+            position: relative;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Jquery animate method</h1>
+    <div id="box"><b>Animation</b></div>
+
+    <br><br>
+    <input type="button" value="click for animation" id="btn">
+
+
+
+    <script src="jquery.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $("#btn").click(function(){
+                $("#box").animate({
+                    left : "200px",
+                    width : "200px",  //hide , show, toggle
+                    fontSize :"40px",
+                    borerWidth :"10px"
+                })
+            });
+        });
+    </script>
+    
+</body>
+</html>
