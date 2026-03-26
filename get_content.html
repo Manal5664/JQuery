@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- text -->
+    <p>this is paragraph</p>
+    <p id="p2">don't give up</p>
+    <input type="button" value="click" id="btn">
+
+    <br>
+    <br>
+
+
+    <!-- html -->
+
+
+    <p>this is paragraph </p>
+    <p id="p3">don't give up <b>belive yourself</b></p>
+    <input type="button" value="click me" id="btn2">
+ 
+    <br>
+    <br>
+
+
+    <!-- val -->
+
+    <input type="text" placeholder="your name" id="txt1">
+
+    <input type="button" value="click" id="btn3">
+
+
+
+    <script src="jquery.js"></script>
+    <script>
+
+        // text
+        $(document).ready(function(){
+            $("#btn").click(function(){
+                var a = $("#p2").text();
+                alert(a);
+            });
+        });
+
+        // html
+            $(document).ready(function(){
+            $("#btn2").click(function(){
+                var b = $("#p3").html();
+                alert(b);
+            });
+        });
+
+
+        // val method  in val method hum paragrapgh k sath use nh krte text method use krna hoga
+        // or form k sath text use nh kr saktee val use krna hoga
+
+         $(document).ready(function(){
+            $("#btn3").click(function(){
+                var b = $("#txt1").val();
+                alert(b);
+            });
+        });
+
+
+
+
+    </script>
+</body>
+</html>
