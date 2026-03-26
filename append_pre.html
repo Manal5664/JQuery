@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+</head>
+<body>
+    <h1>add new class</h1>
+    <input type="button" value="append" id="btn">
+
+    <input type="button" value="preappend" id="btn2">
+
+
+    <script src="jquery.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#btn").click(function(){
+                $("h1").append("<p>this is paragraph<p>")
+            });
+            $("#btn2").click(function(){
+                $("h1").prepend("<p>this is paragraph<p>")
+            })
+        })
+
+    </script>
+</body>
+</html>
