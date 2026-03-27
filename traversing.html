@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Ancestor Methods</title>
+    <style>
+        :root {
+            --purple: #9b8fe6;
+            --lav: #e9e6ff;
+            --orange: #f4b27b;
+            --peach: #fde2bf;
+            --pink: #f29aa3;
+            --rose: #ffd1d6;
+            --box: #cfefff;
+            --box-border: #87bdd6;
+            /* --text: #222; */
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        h1 {
+            margin: 0 0 14px 0;
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        #main {
+            border: 3px solid var(--purple);
+            background: var(--lav);
+            padding: 18px;
+            width: min(760px, 100%);
+        }
+
+        #outer {
+            border: 3px solid var(--orange);
+            background: var(--peach);
+            padding: 18px;
+            margin-top: 14px;
+        }
+
+        #inner {
+            border: 3px solid var(--pink);
+            background: var(--rose);
+            padding: 22px 18px;
+            margin-top: 14px;
+        }
+
+        h2 {
+            margin: 0 0 10px 0;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .boxes {
+            display: flex;
+            justify-content: space-evenly;
+            gap: 18px;
+            padding: 8px 0 2px;
+        }
+
+        .boxes > div {
+            width: 86px;
+            height: 120px;
+            background: var(--box);
+            border: 3px solid var(--box-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 22px;
+            color: #4b4b4b;
+        }
+    </style>
+</head>
+<body>
+    <h1>jQuery Ancestor Methods</h1>
+    <div id="main">
+        <h2>Main Outer</h2>
+        <div id="outer">
+            <h2>Outer</h2>
+            <div id="inner">
+                <h2 id="child">Inner</h2>
+                <div class="boxes">
+                    <div>A</div>
+                    <div>B</div>
+                    <div id="child-C">C</div>
+                    <div>D</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="jquery.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#child-C").parents("#outer").css("background" , "red")
+        });
+    </script>
+</body>
+</html>
