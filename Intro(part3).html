@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 class="h1">jQuery Features</h1>
+
+    <h1>jQuery Features</h1>
+
+    <input type="button" value="Hide" id="hideButton">
+
+    <input type="button" value="show" id="showbtn">
+
+    <input type="button" value="Toggle" id="hideshowbtn">
+
+    <script src="jquery.js"></script>
+
+    <!-- hide -->
+
+    <script>
+        $(document).ready(function(){
+            $("#hideButton").click(function()
+            {
+                $(".h1").hide("3000",function(){
+                    alert("The heading is now hidden.");
+                });  
+                
+                //speed (slow, fast, ms), 
+                // callback ()
+            });
+        })
+        // show
+
+        $(document).ready(function(){
+            $("#showbtn").click(function(){
+                $(".h1").show("slow");
+            });
+        })
+
+        // toggle 
+
+        $(document).ready(function(){
+            $("#hideshowbtn").click(function(){
+                $(".h1").toggle("slow");
+            });
+        })
+
+    </script>
+</body>
+</html>

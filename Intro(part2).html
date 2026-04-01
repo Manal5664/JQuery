@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>jQuery is a fast, small, and feature-rich JavaScript library.  of versatility and extensibility, jQuery has changed the way that millions of people write JavaScript.</p>
+
+    <p>jQuery is distributed under the MIT license. The jQuery library contains the following features:</p>
+
+    <h1>jQuery Features</h1>
+
+    <h2>Feature 1: Easy DOM Traversal and Manipulation</h2>
+
+    <h2>Feature 2: Simple Event Handling</h2>
+
+    <h2>Feature 3: CSS Animation and Effects</h2>
+
+    <h2>Feature 4: Ajax Support</h2>
+
+    <h3>Feature Details</h3>
+
+    <ul id="list1">
+        <li>sana</li>
+        <li>ali</li>
+        <li>zainab</li>
+        <li>hassan</li>
+        <li>fatima</li>
+    </ul>
+
+    <ul id="list2">
+        <li>sana</li>
+        <li>ali</li>
+        <li>zainab</li>
+        <li>hassan</li>
+        <li>fatima</li>
+    </ul>
+
+    <h2 class="h2">Feature 4: Ajax Support</h2>
+
+    <h3 class="h3">Feature Details</h3>
+     
+    <input type="button" value="click me" id="myButton">
+
+    <script src="jquery.js"></script>
+    <script>
+        // universal Selector *
+
+        $(document).ready(function(){
+            $("#myButton").click(function(){
+                $("*").css("color", "blue");
+            });
+        })
+
+        // selecting list items
+        $(document).ready(function()
+        {
+            $("#myButton").click(function(){
+                $("#list2 li").css("color", "green");
+               
+            });
+        })
+
+
+        // selecting multiple classes
+        $(document).ready(function() {
+            $("#myButton").click(function()
+        {
+            $(".h2,.h3").css( "font-size", "40px" );
+        })
+        })
+
+    </script>
+
+</body>
+</html>

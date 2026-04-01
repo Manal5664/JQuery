@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <style>
+        .error{
+            color: red;
+        }
+
+        .c1{
+            border: 2px red ridge;
+        }
+
+
+        .c2{
+            border: 2px green ridge;
+        }
+
+    </style>
+  </head>
+
+  <body>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-sm-4 m-auto ">
+                <form action="" id="form1">
+                    <input type="text" name="myName" id="myName" placeholder="enter your name" class="form-control">
+                    <br>
+                    <input type="text" name="Email" id="Email" placeholder="enter your Email" class="form-control">
+                    <br>
+                    <input type="text" name="password" id="pass" placeholder="enter your password" class="form-control">
+                    <br>
+                    <input type="text" name="cpassword" id="cpass" placeholder="enter your confirm password" class="form-control">
+                    <br>
+
+                    <input type="text" name="age" id="age" placeholder="enter your age" class="form-control">
+                    <br>
+                     <input type="text" name="dob" id="dob" placeholder="yy-mm-dd" class="form-control">
+                    <br>
+                    <input type="submit" value="Submit" class="btn btn-info btn-block">
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+
+
+<script src="jquery.js"></script>
+
+<script src="jquery-validation-1.19.5/dist/jquery.validate.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(function(){
+
+            $("#form1").validate({
+                rules: {
+                    myName:{
+                        required:true,
+                        minlength:3,
+                        maxlength:8
+                    },
+                    Email:{
+                        required:true,
+                        email:true
+                    },
+                    password: {
+                        required:true
+                    },
+                    cpassword: {
+                        required:true,
+                        equalTo: "#pass"
+                    },
+                    age : {
+                        required:true,
+                        range : [10,20],
+                        number: true
+                    },
+                    dob:{
+                        required: true,
+                        date: true
+                    }
+                },
+                //cell ko highlight krne k liee jabbhi error aega too yee cell highlight hoga
+
+                highlight:function(element){
+                    $(element).addClass("c1");
+                    $(element).removeClass("c2");
+
+                },
+                unhighlight:function(element){
+                    $(element).addClass("c2");
+                },
+
+
+
+                messages:{
+                    myName:{
+                        required: "Name is mandatory",
+                        minlength: "3 characters must"
+                    },
+                    Email:{
+                        required: "Email is mandatory",
+                        email: "invalid email"
+                    },
+                    password:{
+                        required:"password is mandatory"
+                    },
+                    cpassword:{
+                        required:" confirmed password is mandatory",
+                        
+                    }
+                }
+            });
+        })
+    </script>
+
+  </body>
+</html>

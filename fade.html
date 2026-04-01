@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fade Methods (jQuery)</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        #div1{
+            height: 120px;
+            width: 250px;
+            border: 5px black ridge;
+            background-color: aqua;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <h1>This is Div</h1>
+        <p>this is paragraph</p>
+    </div>
+    <br>
+    <input type="button" value="Fade In" id="btn">
+
+    <input type="button" value="Fade Out" id="btn2">
+
+    <input type="button" value="Fade Toggle" id="btn3">
+
+    <script src="jquery.js"></script>
+    <script>
+        $(function () {
+            const $div = $("#div1");
+
+            $("#btn").on("click", function () {
+                $div.stop(true, true).fadeIn(220);
+            });
+
+            $("#btn2").on("click", function () {
+                $div.stop(true, true).fadeOut(220);
+            });
+
+            $("#btn3").on("click", function () {
+                $div.stop(true, true).fadeToggle(220);
+            });
+        });
+    </script>
+</body>
+</html>
