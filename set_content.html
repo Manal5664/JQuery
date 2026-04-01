@@ -8,7 +8,7 @@
 <body>
 
     <!-- text -->
-    <p id="p1">Welcome to Query</p>
+    <p id="p1">hey Manal</p>
     <input type="button" value="click" id="button">
 
 <br>
@@ -34,24 +34,30 @@
                 });
 
         });
-
         // html
 
         $(document).ready(function(){
             $("#button2").click(function()
                 {
-                    $("#p1").html("Learning <b>Never</b> Ends");
+                    $("#p1").html("Learning <b style='background-color: yellow;'>Never</b> Ends");
                 });
 
         });
 
         // val
 
+        // $(document).ready(function(){
+        //     $("#button3").click(function(){
+        //         $("#txt1").val("Muhammad")
+        //     })
+        // });
+        
         $(document).ready(function(){
             $("#button3").click(function(){
-                $("#txt1").val("Muhammad")
+                var name = $("#txt1").val();   // user ka input get karo
+                $("#p1").text("Hey " + name);  // paragraph me show karo
             })
-        })
+        });
     </script>
     
 </body>

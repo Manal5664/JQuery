@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>jQuery UI & Plugins Demo</title>
+
+  <!-- jQuery + jQuery UI -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- Lightbox -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet">
+
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    section { height: 500px; }
+    #topBtn { position: fixed; bottom: 20px; right: 20px; }
+  </style>
+</head>
+
+<body>
+
+<h2> Datepicker</h2>
+<input type="text" id="date">
+
+<h2> Accordion</h2>
+<div id="accordion">
+  <h3>Section 1</h3>
+  <div><p>Content 1</p></div>
+  <h3>Section 2</h3>
+  <div><p>Content 2</p></div>
+</div>
+
+<h2>💬 Dialog</h2>
+<button id="openDialog">Open Dialog</button>
+<div id="dialog" title="Welcome">
+  <p>Hello! This is jQuery Dialog</p>
+</div>
+
+<h2>🔢 Counter</h2>
+<h1 class="counter">1000</h1>
+
+<h2>🖼 Lightbox</h2>
+<a href="https://via.placeholder.com/400" data-lightbox="image">
+  <img src="https://via.placeholder.com/150">
+</a>
+
+<section style="background: lightblue;" data-aos="fade-up">
+  AOS Animation Section
+</section>
+
+<button id="topBtn">Scroll Top</button>
+
+<!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+
+<script>
+$(document).ready(function(){
+
+  // Datepicker
+  $("#date").datepicker();
+
+  // Accordion
+  $("#accordion").accordion();
+
+  // Dialog
+  $("#dialog").dialog({ autoOpen: false });
+  $("#openDialog").click(function(){
+    $("#dialog").dialog("open");
+  });
+
+  // CounterUp
+  $(".counter").counterUp({
+    delay: 10,
+    time: 1000
+  });
+
+  // AOS
+  AOS.init();
+
+  // Smooth Scroll
+  $("#topBtn").click(function(){
+    $("html, body").animate({scrollTop: 0}, 1000);
+  });
+
+  // Modal Popup on Scroll
+  $(window).scroll(function(){
+    if($(this).scrollTop() > 200){
+      $("#dialog").dialog("open");
+    }
+  });
+
+});
+</script>
+
+</body>
+</html>

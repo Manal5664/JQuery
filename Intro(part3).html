@@ -7,22 +7,14 @@
 </head>
 <body>
     <h1 class="h1">jQuery Features</h1>
+
     <h1>jQuery Features</h1>
 
-
-
     <input type="button" value="Hide" id="hideButton">
-
-
 
     <input type="button" value="show" id="showbtn">
 
     <input type="button" value="Toggle" id="hideshowbtn">
-
-
-
-
-
 
     <script src="jquery.js"></script>
 
@@ -40,14 +32,11 @@
                 // callback ()
             });
         })
-
-
-
         // show
 
         $(document).ready(function(){
             $("#showbtn").click(function(){
-                $(".h1").show();
+                $(".h1").show("slow");
             });
         })
 
@@ -55,7 +44,7 @@
 
         $(document).ready(function(){
             $("#hideshowbtn").click(function(){
-                $(".h1").toggle();
+                $(".h1").toggle("slow");
             });
         })
 

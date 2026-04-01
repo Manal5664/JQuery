@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Fade Methods (jQuery)</title>
     <link rel="stylesheet" href="style.css">
     <style>
         #div1{
@@ -11,7 +11,7 @@
             width: 250px;
             border: 5px black ridge;
             background-color: aqua;
-            /* display: none; */
+            display: none;
         }
     </style>
 </head>
@@ -20,34 +20,28 @@
         <h1>This is Div</h1>
         <p>this is paragraph</p>
     </div>
-    
-    
     <br>
-    <input type="button" value="fadein" id="btn">
+    <input type="button" value="Fade In" id="btn">
 
-    <input type="button" value="fadeout" id="btn2">
+    <input type="button" value="Fade Out" id="btn2">
 
-    <input type="button" value="fadeout" id="btn3">
-
-
+    <input type="button" value="Fade Toggle" id="btn3">
 
     <script src="jquery.js"></script>
     <script>
-        $(document).ready(function(){
-            $('#btn').click(function(){
-                $("div").fadeIn()
-            });
-        });
+        $(function () {
+            const $div = $("#div1");
 
-        $(document).ready(function(){
-            $('#btn2').click(function(){
-                $("div").fadeOut()
+            $("#btn").on("click", function () {
+                $div.stop(true, true).fadeIn(220);
             });
-        });
 
-        $(document).ready(function(){
-            $('#btn3').click(function(){
-                $("div").fadeToggle()
+            $("#btn2").on("click", function () {
+                $div.stop(true, true).fadeOut(220);
+            });
+
+            $("#btn3").on("click", function () {
+                $div.stop(true, true).fadeToggle(220);
             });
         });
     </script>

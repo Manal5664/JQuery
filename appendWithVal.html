@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Append Example</title>
+</head>
+<body>
+
+    <h1>Names:</h1>
+
+    <!-- Input field -->
+    <input type="text" id="nameInput" placeholder="Enter your name">
+
+    <br><br>
+
+    <input type="button" value="Append" id="btn">
+    <input type="button" value="Prepend" id="btn2">
+
+    <script src="jquery.js"></script>
+    <script>
+        $(document).ready(function(){
+
+            $("#btn").click(function(){
+                var name = $("#nameInput").val(); // input value lena
+                $("h1").append("<p>" + name + "</p>");
+            });
+
+            $("#btn2").click(function(){
+                var name = $("#nameInput").val();
+                $("h1").prepend("<p>" + name + "</p>");
+            });
+
+        });
+    </script>
+
+</body>
+</html>
