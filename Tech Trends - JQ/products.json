@@ -1,0 +1,26 @@
+{
+    "products": [
+        {
+            "title": "Air Pods Pro",
+            "img": "1.webp",
+            "desc": "his is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer."
+        },
+        
+        {
+            "title": "Speedometer",
+            "img": "2.webp",
+            "desc": "his is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer."
+        },
+        
+        {
+            "title": "Air Buds",
+            "img": "3.webp",
+            "desc": "his is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer."
+        },
+        {
+            "title": "new prod",
+            "img": "3.webp",
+            "desc": "his is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer."
+        }
+    ]
+}
