@@ -1,0 +1,554 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.2.0/magnific-popup.min.css">
+    <style>
+        .gallerys img{
+            width:100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .product-card {
+            cursor: pointer;
+            transition: transform 0.3s;
+            position: relative;
+        }
+        
+        .product-card:hover {
+            transform: scale(1.05);
+        }
+        
+        .product-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 8px;
+            font-size: 12px;
+            max-height: 50px;
+            overflow: hidden;
+        }
+        
+        .product-overlay .name {
+            font-weight: bold;
+            font-size: 14px;
+        }
+        
+        .popup-container {
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+        }
+        
+        .popup-image {
+            flex: 0 0 40%;
+        }
+        
+        .popup-image img {
+            width: 100%;
+            border-radius: 8px;
+        }
+        
+        .popup-details {
+            flex: 0 0 60%;
+            padding: 10px 0;
+        }
+        
+        .popup-details h3 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .spec {
+            margin: 10px 0;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+        }
+        
+        .spec-label {
+            font-weight: bold;
+            color: #555;
+        }
+        
+        .spec-value {
+            color: #777;
+        }
+        
+        @media (max-width: 768px) {
+            .popup-container {
+                flex-direction: column;
+            }
+            .popup-image {
+                flex: 0 0 100%;
+            }
+            .popup-details {
+                flex: 0 0 100%;
+                max-height: 300px;
+                overflow-y: auto;
+            }
+        }
+        
+        /* Magnific Popup Styles */
+        .mfp-inline-holder {
+            padding: 0 !important;
+        }
+        
+        .mfp-content {
+            max-width: 900px;
+            width: 100%;
+        }
+        
+        .mfp-with-zoom .mfp-container,
+        .mfp-with-zoom.mfp-bg {
+            opacity: 0;
+            -webkit-transition: all 0.3s ease-out;
+            transition: all 0.3s ease-out;
+        }
+        
+        .mfp-with-zoom.mfp-ready .mfp-container {
+            opacity: 1;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="container w-100 h-100">
+        <div class="py-4">
+            <h1 class="text-uppercase text-center display-3">My gallery</h1>
+            <hr class="w-100 border-dark ">
+            </div>
+            <div class="row g-0 gallerys">
+                <div class="col-md-4 col-lg-4 col-sm-6 col-12 product-card" data-product="1">
+                    <img src="./images/1.webp" class="img-fluid">
+                    <div class="product-overlay">
+                        <div class="name">Wireless Earbuds Pro</div>
+                        <div class="brand">TechSound</div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-4 col-sm-6 col-12 product-card" data-product="2">
+                    <img src="./images/2.webp" class="img-fluid">
+                    <div class="product-overlay">
+                        <div class="name">Noise Cancelling Headphones</div>
+                        <div class="brand">AudioMax</div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-4 col-sm-6 col-12 product-card" data-product="3">
+                    <img src="./images/3.webp" class="img-fluid">
+                    <div class="product-overlay">
+                        <div class="name">Bluetooth Speaker XL</div>
+                        <div class="brand">SoundBoom</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-0 gallerys">
+                <div class="col-md-4 col-lg-4 col-sm-6 col-12 product-card" data-product="4">
+                    <img src="./images/4.webp" class="img-fluid">
+                    <div class="product-overlay">
+                        <div class="name">Gaming Headset Elite</div>
+                        <div class="brand">GamerAudio</div>
+                    </div>
+                </div>
+                            
+                <div class="col-md-4 col-lg-4 col-sm-6 col-12 product-card" data-product="5">
+                    <img src="./images/5.webp" class="img-fluid">
+                    <div class="product-overlay">
+                        <div class="name">Studio Monitor Earphones</div>
+                        <div class="brand">ProSound</div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-4 col-sm-6 col-12 product-card" data-product="6">
+                    <img src="./images/6.webp" class="img-fluid">
+                    <div class="product-overlay">
+                        <div class="name">Portable Air Pods</div>
+                        <div class="brand">MobileTech</div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-4 col-sm-6 col-12 product-card" data-product="7">
+                    <img src="./images/7.webp" class="img-fluid">
+                    <div class="product-overlay">
+                        <div class="name">Active Bass Headphones</div>
+                        <div class="brand">BassKing</div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-4 col-sm-6 col-12 product-card" data-product="8">
+                    <img src="./images/a (1).webp" class="img-fluid">
+                    <div class="product-overlay">
+                        <div class="name">Premium In-Ear Buds</div>
+                        <div class="brand">EliteSound</div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-4 col-sm-6 col-12 product-card" data-product="9">
+                    <img src="./images/a (2).webp" class="img-fluid">
+                    <div class="product-overlay">
+                        <div class="name">Wireless Over-Ear Headphones</div>
+                        <div class="brand">SoundPro</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Magnific Popup HTML content wrapper -->
+    <div style="display: none;">
+    
+    <div id="product-1" class="popup-container" style="width: 900px;">
+        <div class="popup-image"><img src="./images/1.webp" alt="Wireless Earbuds Pro"></div>
+        <div class="popup-details">
+            <h3>Wireless Earbuds Pro</h3>
+            <div class="spec"><span class="spec-label">Brand: </span><span class="spec-value">TechSound</span></div>
+            <div class="spec"><span class="spec-label">Price: </span><span class="spec-value">Rs. 4,999</span></div>
+            <div class="spec"><span class="spec-label">Type: </span><span class="spec-value">True Wireless Earbuds</span></div>
+            <div class="spec"><span class="spec-label">Driver Size: </span><span class="spec-value">10mm</span></div>
+            <div class="spec"><span class="spec-label">Battery Life: </span><span class="spec-value">6 Hours (Single Charge)</span></div>
+            <div class="spec"><span class="spec-label">Charging Case: </span><span class="spec-value">24 Hours Total</span></div>
+            <div class="spec"><span class="spec-label">Connectivity: </span><span class="spec-value">Bluetooth 5.2</span></div>
+            <div class="spec"><span class="spec-label">Water Resistance: </span><span class="spec-value">IPX4</span></div>
+            <div class="spec"><span class="spec-label">Weight: </span><span class="spec-value">5g per earbud</span></div>
+        </div>
+    </div>
+
+    <div id="product-2" class="popup-container" style="width: 900px;">
+        <div class="popup-image"><img src="./images/2.webp" alt="Noise Cancelling Headphones"></div>
+        <div class="popup-details">
+            <h3>Noise Cancelling Headphones</h3>
+            <div class="spec"><span class="spec-label">Brand: </span><span class="spec-value">AudioMax</span></div>
+            <div class="spec"><span class="spec-label">Price: </span><span class="spec-value">Rs. 12,999</span></div>
+            <div class="spec"><span class="spec-label">Type: </span><span class="spec-value">Over-Ear Wireless</span></div>
+            <div class="spec"><span class="spec-label">Active Noise Cancellation: </span><span class="spec-value">Yes</span></div>
+            <div class="spec"><span class="spec-label">Battery Life: </span><span class="spec-value">30 Hours</span></div>
+            <div class="spec"><span class="spec-label">Charging: </span><span class="spec-value">USB-C Charging</span></div>
+            <div class="spec"><span class="spec-label">Frequency Response: </span><span class="spec-value">20Hz - 20kHz</span></div>
+            <div class="spec"><span class="spec-label">Driver: </span><span class="spec-value">40mm Neodymium</span></div>
+            <div class="spec"><span class="spec-label">Weight: </span><span class="spec-value">250g</span></div>
+        </div>
+    </div>
+
+    <div id="product-3" class="popup-container" style="width: 900px;">
+        <div class="popup-image"><img src="./images/3.webp" alt="Bluetooth Speaker XL"></div>
+        <div class="popup-details">
+            <h3>Bluetooth Speaker XL</h3>
+            <div class="spec"><span class="spec-label">Brand: </span><span class="spec-value">SoundBoom</span></div>
+            <div class="spec"><span class="spec-label">Price: </span><span class="spec-value">Rs. 8,999</span></div>
+            <div class="spec"><span class="spec-label">Type: </span><span class="spec-value">Portable Bluetooth Speaker</span></div>
+            <div class="spec"><span class="spec-label">Power Output: </span><span class="spec-value">50W</span></div>
+            <div class="spec"><span class="spec-label">Battery Life: </span><span class="spec-value">12 Hours</span></div>
+            <div class="spec"><span class="spec-label">Range: </span><span class="spec-value">10 Meters</span></div>
+            <div class="spec"><span class="spec-label">Water Resistance: </span><span class="spec-value">IPX7</span></div>
+            <div class="spec"><span class="spec-label">Connectivity: </span><span class="spec-value">Bluetooth 5.0 & 3.5mm Jack</span></div>
+            <div class="spec"><span class="spec-label">Dimensions: </span><span class="spec-value">180x100x80mm</span></div>
+        </div>
+    </div>
+
+    <div id="product-4" class="popup-container" style="width: 900px;">
+        <div class="popup-image"><img src="./images/4.webp" alt="Gaming Headset Elite"></div>
+        <div class="popup-details">
+            <h3>Gaming Headset Elite</h3>
+            <div class="spec"><span class="spec-label">Brand: </span><span class="spec-value">GamerAudio</span></div>
+            <div class="spec"><span class="spec-label">Price: </span><span class="spec-value">Rs. 6,999</span></div>
+            <div class="spec"><span class="spec-label">Type: </span><span class="spec-value">Wired Gaming Headset</span></div>
+            <div class="spec"><span class="spec-label">Drivers: </span><span class="spec-value">50mm Dynamic</span></div>
+            <div class="spec"><span class="spec-label">Impedance: </span><span class="spec-value">32 Ohms</span></div>
+            <div class="spec"><span class="spec-label">Microphone: </span><span class="spec-value">Noise Cancelling</span></div>
+            <div class="spec"><span class="spec-label">Cable Length: </span><span class="spec-value">2 Meters</span></div>
+            <div class="spec"><span class="spec-label">Connectivity: </span><span class="spec-value">3.5mm + USB</span></div>
+            <div class="spec"><span class="spec-label">Frequency Response: </span><span class="spec-value">20Hz - 20kHz</span></div>
+        </div>
+    </div>
+
+    <div id="product-5" class="popup-container" style="width: 900px;">
+        <div class="popup-image"><img src="./images/5.webp" alt="Studio Monitor Earphones"></div>
+        <div class="popup-details">
+            <h3>Studio Monitor Earphones</h3>
+            <div class="spec"><span class="spec-label">Brand: </span><span class="spec-value">ProSound</span></div>
+            <div class="spec"><span class="spec-label">Price: </span><span class="spec-value">Rs. 3,499</span></div>
+            <div class="spec"><span class="spec-label">Type: </span><span class="spec-value">In-Ear Monitors</span></div>
+            <div class="spec"><span class="spec-label">Driver: </span><span class="spec-value">8mm Dynamic</span></div>
+            <div class="spec"><span class="spec-label">Cable: </span><span class="spec-value">3.5mm OFC Copper</span></div>
+            <div class="spec"><span class="spec-label">Frequency Response: </span><span class="spec-value">20Hz - 20kHz</span></div>
+            <div class="spec"><span class="spec-label">Impedance: </span><span class="spec-value">16 Ohms</span></div>
+            <div class="spec"><span class="spec-label">Weight: </span><span class="spec-value">10g</span></div>
+            <div class="spec"><span class="spec-label">Warranty: </span><span class="spec-value">1 Year</span></div>
+        </div>
+    </div>
+
+    <div id="product-6" class="popup-container" style="width: 900px;">
+        <div class="popup-image"><img src="./images/6.webp" alt="Portable Air Pods"></div>
+        <div class="popup-details">
+            <h3>Portable Air Pods</h3>
+            <div class="spec"><span class="spec-label">Brand: </span><span class="spec-value">MobileTech</span></div>
+            <div class="spec"><span class="spec-label">Price: </span><span class="spec-value">Rs. 7,999</span></div>
+            <div class="spec"><span class="spec-label">Type: </span><span class="spec-value">True Wireless Earbuds</span></div>
+            <div class="spec"><span class="spec-label">Battery Life: </span><span class="spec-value">5 Hours</span></div>
+            <div class="spec"><span class="spec-label">Charging Case: </span><span class="spec-value">20 Hours Total</span></div>
+            <div class="spec"><span class="spec-label">Connectivity: </span><span class="spec-value">Bluetooth 5.1</span></div>
+            <div class="spec"><span class="spec-label">Water Resistance: </span><span class="spec-value">IPX5</span></div>
+            <div class="spec"><span class="spec-label">Quick Charge: </span><span class="spec-value">15 min = 2 Hours</span></div>
+            <div class="spec"><span class="spec-label">Features: </span><span class="spec-value">Touch Control</span></div>
+        </div>
+    </div>
+
+    <div id="product-7" class="popup-container" style="width: 900px;">
+        <div class="popup-image"><img src="./images/7.webp" alt="Active Bass Headphones"></div>
+        <div class="popup-details">
+            <h3>Active Bass Headphones</h3>
+            <div class="spec"><span class="spec-label">Brand: </span><span class="spec-value">BassKing</span></div>
+            <div class="spec"><span class="spec-label">Price: </span><span class="spec-value">Rs. 9,999</span></div>
+            <div class="spec"><span class="spec-label">Type: </span><span class="spec-value">Over-Ear Wireless</span></div>
+            <div class="spec"><span class="spec-label">Driver: </span><span class="spec-value">45mm Bass Driver</span></div>
+            <div class="spec"><span class="spec-label">Battery Life: </span><span class="spec-value">20 Hours</span></div>
+            <div class="spec"><span class="spec-label">Charging: </span><span class="spec-value">USB-C (30 min full charge)</span></div>
+            <div class="spec"><span class="spec-label">Connectivity: </span><span class="spec-value">Bluetooth 5.0</span></div>
+            <div class="spec"><span class="spec-label">Bass Boost: </span><span class="spec-value">Yes (Adjustable)</span></div>
+            <div class="spec"><span class="spec-label">Weight: </span><span class="spec-value">280g</span></div>
+        </div>
+    </div>
+
+    <div id="product-8" class="popup-container" style="width: 900px;">
+        <div class="popup-image"><img src="./images/a (1).webp" alt="Premium In-Ear Buds"></div>
+        <div class="popup-details">
+            <h3>Premium In-Ear Buds</h3>
+            <div class="spec"><span class="spec-label">Brand: </span><span class="spec-value">EliteSound</span></div>
+            <div class="spec"><span class="spec-label">Price: </span><span class="spec-value">Rs. 11,999</span></div>
+            <div class="spec"><span class="spec-label">Type: </span><span class="spec-value">True Wireless Earbuds</span></div>
+            <div class="spec"><span class="spec-label">Driver: </span><span class="spec-value">12mm Custom</span></div>
+            <div class="spec"><span class="spec-label">Battery Life: </span><span class="spec-value">8 Hours</span></div>
+            <div class="spec"><span class="spec-label">Charging Case: </span><span class="spec-value">32 Hours Total</span></div>
+            <div class="spec"><span class="spec-label">Noise Cancellation: </span><span class="spec-value">Active + Passive</span></div>
+            <div class="spec"><span class="spec-label">Connectivity: </span><span class="spec-value">Bluetooth 5.2 + aptX</span></div>
+            <div class="spec"><span class="spec-label">Microphone: </span><span class="spec-value">Dual Mic Array</span></div>
+        </div>
+    </div>
+
+    <div id="product-9" class="popup-container" style="width: 900px;">
+        <div class="popup-image"><img src="./images/a (2).webp" alt="Wireless Over-Ear Headphones"></div>
+        <div class="popup-details">
+            <h3>Wireless Over-Ear Headphones</h3>
+            <div class="spec"><span class="spec-label">Brand: </span><span class="spec-value">SoundPro</span></div>
+            <div class="spec"><span class="spec-label">Price: </span><span class="spec-value">Rs. 10,499</span></div>
+            <div class="spec"><span class="spec-label">Type: </span><span class="spec-value">Over-Ear Wireless Headphones</span></div>
+            <div class="spec"><span class="spec-label">Driver: </span><span class="spec-value">40mm Dynamic</span></div>
+            <div class="spec"><span class="spec-label">Battery Life: </span><span class="spec-value">25 Hours</span></div>
+            <div class="spec"><span class="spec-label">Charging: </span><span class="spec-value">Micro USB</span></div>
+            <div class="spec"><span class="spec-label">Connectivity: </span><span class="spec-value">Bluetooth 4.2</span></div>
+            <div class="spec"><span class="spec-label">Foldable Design: </span><span class="spec-value">Yes</span></div>
+            <div class="spec"><span class="spec-label">Warranty: </span><span class="spec-value">2 Years</span></div>
+        </div>
+    </div>
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.2.0/jquery.magnific-popup.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+     <script>
+        // Product data for popup content
+        const productData = {
+            1: {
+                name: "Wireless Earbuds Pro",
+                brand: "TechSound",
+                price: "Rs. 4,999",
+                image: "./images/1.webp",
+                specs: {
+                    "Type": "True Wireless Earbuds",
+                    "Driver Size": "10mm",
+                    "Battery Life": "6 Hours (Single Charge)",
+                    "Charging Case": "24 Hours Total",
+                    "Connectivity": "Bluetooth 5.2",
+                    "Water Resistance": "IPX4",
+                    "Weight": "5g per earbud"
+                }
+            },
+            2: {
+                name: "Noise Cancelling Headphones",
+                brand: "AudioMax",
+                price: "Rs. 12,999",
+                image: "./images/2.webp",
+                specs: {
+                    "Type": "Over-Ear Wireless",
+                    "Active Noise Cancellation": "Yes",
+                    "Battery Life": "30 Hours",
+                    "Charging": "USB-C Charging",
+                    "Frequency Response": "20Hz - 20kHz",
+                    "Driver": "40mm Neodymium",
+                    "Weight": "250g"
+                }
+            },
+            3: {
+                name: "Bluetooth Speaker XL",
+                brand: "SoundBoom",
+                price: "Rs. 8,999",
+                image: "./images/3.webp",
+                specs: {
+                    "Type": "Portable Bluetooth Speaker",
+                    "Power Output": "50W",
+                    "Battery Life": "12 Hours",
+                    "Range": "10 Meters",
+                    "Water Resistance": "IPX7",
+                    "Connectivity": "Bluetooth 5.0 & 3.5mm Jack",
+                    "Dimensions": "180x100x80mm"
+                }
+            },
+            4: {
+                name: "Gaming Headset Elite",
+                brand: "GamerAudio",
+                price: "Rs. 6,999",
+                image: "./images/4.webp",
+                specs: {
+                    "Type": "Wired Gaming Headset",
+                    "Drivers": "50mm Dynamic",
+                    "Impedance": "32 Ohms",
+                    "Microphone": "Noise Cancelling",
+                    "Cable Length": "2 Meters",
+                    "Connectivity": "3.5mm + USB",
+                    "Frequency Response": "20Hz - 20kHz"
+                }
+            },
+            5: {
+                name: "Studio Monitor Earphones",
+                brand: "ProSound",
+                price: "Rs. 3,499",
+                image: "./images/5.webp",
+                specs: {
+                    "Type": "In-Ear Monitors",
+                    "Driver": "8mm Dynamic",
+                    "Cable": "3.5mm OFC Copper",
+                    "Frequency Response": "20Hz - 20kHz",
+                    "Impedance": "16 Ohms",
+                    "Weight": "10g",
+                    "Warranty": "1 Year"
+                }
+            },
+            6: {
+                name: "Portable Air Pods",
+                brand: "MobileTech",
+                price: "Rs. 7,999",
+                image: "./images/6.webp",
+                specs: {
+                    "Type": "True Wireless Earbuds",
+                    "Battery Life": "5 Hours",
+                    "Charging Case": "20 Hours Total",
+                    "Connectivity": "Bluetooth 5.1",
+                    "Water Resistance": "IPX5",
+                    "Quick Charge": "15 min = 2 Hours",
+                    "Features": "Touch Control"
+                }
+            },
+            7: {
+                name: "Active Bass Headphones",
+                brand: "BassKing",
+                price: "Rs. 9,999",
+                image: "./images/7.webp",
+                specs: {
+                    "Type": "Over-Ear Wireless",
+                    "Driver": "45mm Bass Driver",
+                    "Battery Life": "20 Hours",
+                    "Charging": "USB-C (30 min full charge)",
+                    "Connectivity": "Bluetooth 5.0",
+                    "Bass Boost": "Yes (Adjustable)",
+                    "Weight": "280g"
+                }
+            },
+            8: {
+                name: "Premium In-Ear Buds",
+                brand: "EliteSound",
+                price: "Rs. 11,999",
+                image: "./images/a (1).webp",
+                specs: {
+                    "Type": "True Wireless Earbuds",
+                    "Driver": "12mm Custom",
+                    "Battery Life": "8 Hours",
+                    "Charging Case": "32 Hours Total",
+                    "Noise Cancellation": "Active + Passive",
+                    "Connectivity": "Bluetooth 5.2 + aptX",
+                    "Microphone": "Dual Mic Array"
+                }
+            },
+            9: {
+                name: "Wireless Over-Ear Headphones",
+                brand: "SoundPro",
+                price: "Rs. 10,499",
+                image: "./images/a (2).webp",
+                specs: {
+                    "Type": "Over-Ear Wireless Headphones",
+                    "Driver": "40mm Dynamic",
+                    "Battery Life": "25 Hours",
+                    "Charging": "Micro USB",
+                    "Connectivity": "Bluetooth 4.2",
+                    "Foldable Design": "Yes",
+                    "Warranty": "2 Years"
+                }
+            }
+        };
+        
+        $(document).ready(function(){
+            $('.product-card').click(function(e){
+                e.preventDefault();
+                e.stopPropagation();
+                
+                const productId = $(this).data('product');
+                const product = productData[productId];
+                
+                if(product) {
+                    // Build HTML content
+                    let html = '<div class="popup-container">';
+                    html += '<div class="popup-image"><img src="' + product.image + '" alt="' + product.name + '" style="width: 100%; border-radius: 8px;"></div>';
+                    html += '<div class="popup-details" style="overflow-y: auto; max-height: 500px;">';
+                    html += '<h3 style="margin-top: 0;">' + product.name + '</h3>';
+                    html += '<div class="spec"><span class="spec-label">Brand: </span><span class="spec-value">' + product.brand + '</span></div>';
+                    html += '<div class="spec"><span class="spec-label">Price: </span><span class="spec-value">' + product.price + '</span></div>';
+                    
+                    for (let key in product.specs) {
+                        html += '<div class="spec"><span class="spec-label">' + key + ': </span><span class="spec-value">' + product.specs[key] + '</span></div>';
+                    }
+                    
+                    html += '</div></div>';
+                    
+                    // Create gallery array with all products
+                    let galleryItems = [];
+                    for (let i = 1; i <= 9; i++) {
+                        let prod = productData[i];
+                        let prodHtml = '<div class="popup-container">';
+                        prodHtml += '<div class="popup-image"><img src="' + prod.image + '" alt="' + prod.name + '" style="width: 100%; border-radius: 8px;"></div>';
+                        prodHtml += '<div class="popup-details" style="overflow-y: auto; max-height: 500px;">';
+                        prodHtml += '<h3 style="margin-top: 0;">' + prod.name + '</h3>';
+                        prodHtml += '<div class="spec"><span class="spec-label">Brand: </span><span class="spec-value">' + prod.brand + '</span></div>';
+                        prodHtml += '<div class="spec"><span class="spec-label">Price: </span><span class="spec-value">' + prod.price + '</span></div>';
+                        
+                        for (let key in prod.specs) {
+                            prodHtml += '<div class="spec"><span class="spec-label">' + key + ': </span><span class="spec-value">' + prod.specs[key] + '</span></div>';
+                        }
+                        
+                        prodHtml += '</div></div>';
+                        
+                        galleryItems.push({
+                            src: '<div style="background: white; padding: 30px; border-radius: 10px; max-width: 900px;">' + prodHtml + '</div>',
+                            type: 'inline'
+                        });
+                    }
+                    
+                    $.magnificPopup.open({
+                        items: galleryItems,
+                        gallery: {
+                            enabled: true
+                        },
+                        type: 'inline',
+                        mainClass: 'mfp-with-zoom',
+                        index: productId - 1,
+                        closeMarkup: '<button title="%title%" type="button" class="mfp-close" style="opacity: 1; right: -40px; top: -50px; font-size: 32px; color: #fff; background: none; border: none; cursor: pointer;">×</button>',
+                        removalDelay: 300
+                    });
+                }
+            });
+        });
+     </script>
+  </body>
+</html>
